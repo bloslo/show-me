@@ -1,11 +1,9 @@
-language: node.js
+language: node_js
 node_js:
   - 6
 cashe:
   directories:
     - "node_modules"
-before_script:
-  - npm install
 script:
   - npm test
   - npm run build
