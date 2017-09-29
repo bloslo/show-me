@@ -6,6 +6,8 @@ cashe:
     - "node_modules"
 before_install:
   - npm i -g npm@5.0.0
+install:
+  - npm install
 script:
   - npm run build
   - npm test
