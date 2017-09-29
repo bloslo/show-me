@@ -4,6 +4,8 @@ node_js:
 cashe:
   directories:
     - "node_modules"
+before_script:
+  - npm install
 script:
   - npm test
   - npm run build
