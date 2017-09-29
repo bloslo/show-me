@@ -1,14 +1,14 @@
 language: node.js
 node_js:
-  - "lts/*"
+  - 6
 cashe:
   directories:
     - "node_modules"
 before_install:
   - npm i -g npm@5.0.0
 script:
-  - npm test
   - npm run build
+  - npm test
 deploy:
   provider: pages
   skip_cleanup: true
