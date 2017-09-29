@@ -1,0 +1,17 @@
+language: node.js
+node_js:
+  - "lts/*"
+cashe:
+  directories:
+    - "node_modules"
+before_install:
+  - npm i -g npm@5.0.0
+script:
+  - npm test
+  - npm run build
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
