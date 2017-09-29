@@ -6,9 +6,13 @@ cashe:
     - "node_modules"
 before_install:
   - npm i -g npm@5.0.0
-install:
-  - npm install
 script:
   - npm test
   - npm run build
-  - npm run deploy
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: build
+  on:
+    branch: master
