@@ -1,22 +1,23 @@
-import React, {Component} from 'react';
-import {firebaseApp} from '../firebase';
+import React, { Component } from 'react';
 
-class Dashboard extends Component{
-signOut() {
-  firebaseApp.auth().signOut();
-}
+import { firebaseApp } from '../firebase';
+
+class Dashboard extends Component {
+  signOut() {
+    firebaseApp.auth().signOut();
+  }
 
   render() {
     return (
       <div>
-          <button
-            className="btn btn-danger"
-            onClick={() => this.signOut()}
-          >
-            Sign Out
-          </button>
+        <button
+          className="btn btn-danger"
+          onClick={() => this.signOut()}
+        >
+          Sign Out
+        </button>
       </div>
-    )
+    );
   }
 }
 

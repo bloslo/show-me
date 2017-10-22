@@ -1,44 +1,44 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router';
 import { firebaseApp } from '../firebase';
-import {Link} from 'react-router';
 
-class SignUp extends Component{
+class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //name: '', //For Later use with GraphQL.
+      // name: '', //For Later use with GraphQL.
       email: '',
       password: '',
-      error: ''
+      error: '',
     };
   }
 
   signUp() {
-    const {email, password} = this.state;
+    const { email, password } = this.state;
     firebaseApp.auth().createUserWithEmailAndPassword(email, password)
-      .catch(error => {
-        this.setState({error});
-      })
+      .catch((error) => {
+        this.setState({ error });
+      });
   }
 
   render() {
     return (
-      <div className="form-inline" style={{margin: '5%'}}>
+      <div className="form-inline" style={{ margin: '5%' }}>
         <h2>Sign Up</h2>
         <div className="form-group">
           <input
             className="form-control"
             type="text"
             placeholder="E-Mail"
-            style={{marginRight: '5px'}}
-            onChange={event => this.setState({email: event.target.value})}
+            style={{ marginRight: '5px' }}
+            onChange={event => this.setState({ email: event.target.value })}
           />
           <input
             className="form-control"
             type="password"
             placeholder="Password"
-            style={{marginRight: '5px'}}
-            onChange={event => this.setState({password: event.target.value})}
+            style={{ marginRight: '5px' }}
+            onChange={event => this.setState({ password: event.target.value })}
           />
           <button
             className="btn btn-primary"
@@ -48,11 +48,11 @@ class SignUp extends Component{
             Sign Up
           </button>
         </div>
-        <div><Link to={'/signin'}>Sign In!</Link></div>
+        <div><Link to="/signin">Sign In!</Link></div>
         <div>{this.state.error.message}</div>
       </div>
 
-    )
+    );
   }
 }
 
