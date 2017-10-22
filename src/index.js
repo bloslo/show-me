@@ -1,25 +1,16 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, browserHistory} from 'react-router';
+import { browserHistory } from 'react-router';
+import Routes from './components/Routes';
 import { firebaseApp } from './firebase';
 
-//Importing Componenting Component
-import Dashboard from './Components/Dashboard';
-import SignIn from './Components/SignIn';
-import SignUp from './Components/SignUp';
+// Importing Componenting Component
 
-firebaseApp.auth().onAuthStateChanged(user => {
-  if(user) {
+firebaseApp.auth().onAuthStateChanged((user) => {
+  if (user) {
     browserHistory.push('/dashboard');
   } else {
-    browserHistory.replace('/signin');
+    // browserHistory.replace('/signin');
   }
-})
+});
 
-ReactDOM.render(
-  <Router path="/" history={browserHistory}>
-    <Route path="/dashboard" component={Dashboard} />
-    <Route path="/signin" component={SignIn} />
-    <Route path="/signup" component={SignUp} />
-  </Router>, document.getElementById('root')
-)
+ReactDOM.render(Routes(), document.getElementById('root'));

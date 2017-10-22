@@ -5,6 +5,7 @@ import { firebaseApp } from '../firebase';
 class Dashboard extends Component {
   signOut() {
     firebaseApp.auth().signOut();
+    this.a = 1;
   }
 
   render() {
