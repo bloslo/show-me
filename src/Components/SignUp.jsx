@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { firebaseApp } from '../firebase';
+import {Link} from 'react-router';
 
 class SignUp extends Component{
   constructor(props) {
@@ -7,7 +8,8 @@ class SignUp extends Component{
     this.state = {
       //name: '', //For Later use with GraphQL.
       email: '',
-      password: ''
+      password: '',
+      error: ''
     };
   }
 
@@ -15,7 +17,7 @@ class SignUp extends Component{
     const {email, password} = this.state;
     firebaseApp.auth().createUserWithEmailAndPassword(email, password)
       .catch(error => {
-        console.log('error', error);
+        this.setState({error});
       })
   }
 
@@ -46,7 +48,10 @@ class SignUp extends Component{
             Sign Up
           </button>
         </div>
+        <div><Link to={'/signin'}>Sign In!</Link></div>
+        <div>{this.state.error.message}</div>
       </div>
+
     )
   }
 }

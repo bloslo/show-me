@@ -11,6 +11,7 @@ signOut() {
       <div>
           <button
             className="btn btn-danger"
+            onClick={() => this.signOut()}
           >
             Sign Out
           </button>
@@ -19,4 +20,4 @@ signOut() {
   }
 }
 
-export default App;
+export default Dashboard;

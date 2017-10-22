@@ -1,13 +1,17 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router';
 import { firebaseApp } from '../firebase';
+import '../CSS/SignIn.css';
 
 class SignIn extends Component{
   constructor(props) {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      error: {
+        message: ''
+      }
     }
   }
 
@@ -15,38 +19,50 @@ class SignIn extends Component{
     const {email, password} = this.state;
     firebaseApp.auth().signInWithEmailAndPassword(email, password)
       .catch(error => {
-        console.log('error', error);
+        this.setState({error})
       })
   }
 
   render() {
     return (
-      <div className="form-inline" style={{margin: '5%'}}>
+      <div className="form-inline">
         <h2>Sign In</h2>
-        <div className="form-group">
+        <div className="input-group" style={{marginBottom: '10px'}}>
+          <span className="input-group-addon">
+            <i className="glyphicon glyphicon-user"></i>
+          </span>
           <input
             className="form-control"
             type="text"
             placeholder="E-Mail"
-            style={{marginRight: '5px'}}
             onChange={event => this.setState({email: event.target.value})}
           />
+          </div>
+          <br />
+          <div className="input-group" style={{marginBottom: '10px'}}>
+            <span className="input-group-addon">
+              <i className="glyphicon glyphicon-lock"></i>
+            </span>
           <input
             className="form-control"
             type="password"
             placeholder="Password"
-            style={{marginRight: '5px'}}
             onChange={event => this.setState({password: event.target.value})}
           />
-          <button
-            className="btn btn-primary"
-            type="button"
-            onClick={() => this.signIn()}
-          >
-            Sign In
-          </button>
         </div>
-        <div><Link to={'/signup'}> Sign up!</Link></div>
+        <br />
+        <button
+          className="btn btn-primary"
+          type="button"
+          onClick={() => this.signIn()}
+          style={{marginBottom: '10px'}}
+        >
+          Sign In
+        </button>
+
+        <div><Link to={'/signup'}>Register Now!</Link></div>
+
+        <div>{this.state.error.message}</div>
       </div>
     )
   }

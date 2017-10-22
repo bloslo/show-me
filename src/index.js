@@ -10,7 +10,7 @@ import SignUp from './Components/SignUp';
 
 firebaseApp.auth().onAuthStateChanged(user => {
   if(user) {
-    browserHistory.push('/app');
+    browserHistory.push('/dashboard');
   } else {
     browserHistory.replace('/signin');
   }
