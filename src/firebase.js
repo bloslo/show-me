@@ -1,6 +1,6 @@
 import * as firebase from 'firebase';
 
-let config = {
+const config = {
   apiKey: 'AIzaSyB-mIWDNN5Hx5Sj0BV1cq72hqauyrxwmQY',
   authDomain: 'showme-ab504.firebaseapp.com',
   databaseURL: 'https://showme-ab504.firebaseio.com',
@@ -9,4 +9,5 @@ let config = {
   messagingSenderId: '739964765682',
 };
 
-export const firebaseApp = firebase.initializeApp(config);
+const firebaseApp = firebase.initializeApp(config);
+export default firebaseApp;
