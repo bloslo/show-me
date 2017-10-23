@@ -1,8 +1,8 @@
 import React from 'react';
-import { Router, Route, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import { createStore, applyMiddleware, compose } from 'redux';
+import { Route, HashRouter } from 'react-router-dom';
 
 /* Components used */
 import Welcome from './Welcome';
@@ -22,12 +22,14 @@ sagaMiddleware.run(mySaga);
 
 const Routes = () => (
   <Provider store={store}>
-    <Router path="/" history={browserHistory}>
-      <Route path="/" component={Welcome} />
-      <Route path="/dashboard" component={Dashboard} />
-      <Route path="/signin" component={SignIn} />
-      <Route path="/signup" component={SignUp} />
-    </Router>
+    <HashRouter path="/">
+      <div>
+        <Route path="/" component={Welcome} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/signin" component={SignIn} />
+        <Route path="/signup" component={SignUp} />
+      </div>
+    </HashRouter>
   </Provider>);
 
 export default Routes;

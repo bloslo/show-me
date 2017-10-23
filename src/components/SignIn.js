@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, browserHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import '../CSS/SignIn.css';
 
 import { sendMessage } from '../actions';
@@ -15,7 +15,7 @@ class SignIn extends Component {
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn) {
-      browserHistory.push('/dashboard');
+      this.props.history.push('/dashboard');
     }
   }
 
