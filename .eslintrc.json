@@ -5,7 +5,7 @@
       "jsx-a11y/anchor-is-valid": 0,
       "react/no-unused-state": 0,
       "react/prop-types": 0,
-      "import/extensions": 0
+      "react/jsx-filename-extension": 0
     },
     "env": {
       "browser": true
