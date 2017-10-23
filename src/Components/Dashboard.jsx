@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class dashboard extends Component {
+class Dashboard extends Component {
   signOut() {
     this.a = 1;
   }
@@ -20,4 +20,4 @@ class dashboard extends Component {
   }
 }
 
-export default dashboard;
+export default Dashboard;

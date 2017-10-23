@@ -5,10 +5,10 @@ import createSagaMiddleware from 'redux-saga';
 import { createStore, applyMiddleware, compose } from 'redux';
 
 /* Components used */
-import welcome from './welcome';
-import dashboard from './dashboard';
-import signIn from './signIn';
-import signUp from './signUp';
+import Welcome from './Welcome';
+import Dashboard from './Dashboard';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
 
 import rootReducer from '../reducers';
 import mySaga from '../sagas';
@@ -23,10 +23,10 @@ sagaMiddleware.run(mySaga);
 const Routes = () => (
   <Provider store={store}>
     <Router path="/" history={browserHistory}>
-      <Route path="/" component={welcome} />
-      <Route path="/dashboard" component={dashboard} />
-      <Route path="/signin" component={signIn} />
-      <Route path="/signup" component={signUp} />
+      <Route path="/" component={Welcome} />
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/signin" component={SignIn} />
+      <Route path="/signup" component={SignUp} />
     </Router>
   </Provider>);
 
