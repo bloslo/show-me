@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { Link, browserHistory } from 'react-router';
 import '../CSS/SignIn.css';
+
+import { sendMessage } from '../actions';
 
 class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
+      username: '',
       password: '',
-      error: {
-        message: '',
-      },
     };
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.loggedIn) {
+      browserHistory.push('/dashboard');
+    }
   }
 
   render() {
@@ -25,8 +30,8 @@ class SignIn extends Component {
           <input
             className="form-control"
             type="text"
-            placeholder="E-Mail"
-            onChange={event => this.setState({ email: event.target.value })}
+            placeholder="Username"
+            onChange={event => this.setState({ username: event.target.value })}
           />
         </div>
         <br />
@@ -45,7 +50,8 @@ class SignIn extends Component {
         <button
           className="btn btn-primary"
           type="button"
-          onClick={() => this.signIn()}
+          onClick={
+              () => this.props.signIn(this.state.username, this.state.password)}
           style={{ marginBottom: '10px' }}
         >
           Sign In
@@ -53,10 +59,22 @@ class SignIn extends Component {
 
         <div><Link to="/signup">Register Now!</Link></div>
 
-        <div>{this.state.error.message}</div>
+        <div className={this.props.error === '' ? '' : 'alert alert-info'}>{this.props.error}</div>
       </div>
     );
   }
 }
 
-export default SignIn;
+const mapStateToProps = state => ({
+  error: state.user.loginError,
+  loggedIn: state.user.loggedIn,
+});
+
+const mapDispatchToProps = dispatch => ({
+  signIn: (name, pass) => {
+    dispatch(sendMessage('login', { name, pass }));
+  },
+});
+
+export default connect(mapStateToProps,
+  mapDispatchToProps)(SignIn);

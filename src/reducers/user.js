@@ -3,6 +3,7 @@ const user = (state = { loggedIn: false, registerError: '', loginError: '' }, ac
     case 'LOG_IN':
       return {
         ...state,
+        loginError: '',
         loggedIn: true,
       };
     case 'LOG_IN_FAILED':
