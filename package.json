@@ -2,7 +2,7 @@
   "name": "show-me",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://bloslo.github.io/show-me/",
+  "homepage": "http://showme.zapto.org/",
   "dependencies": {
     "gh-pages": "^1.0.0",
     "react": "^16.0.0",
