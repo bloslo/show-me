@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 
-import { firebaseApp } from '../firebase';
 
 class Dashboard extends Component {
   signOut() {
-    firebaseApp.auth().signOut();
     this.a = 1;
   }
 

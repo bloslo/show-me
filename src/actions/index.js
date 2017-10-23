@@ -11,8 +11,9 @@ export const register = () => ({
   type: 'REGISTER',
 });
 
-export const registerFailed = () => ({
+export const registerFailed = message => ({
   type: 'REGISTER_FAILED',
+  message,
 });
 
 export const connect = () => ({
@@ -31,8 +32,9 @@ export const connectionFailed = () => ({
   type: 'CONNECTION_FAILED',
 });
 
-export const sendMessage = payload => ({
+export const sendMessage = (method, payload) => ({
   type: 'SEND_MESSAGE',
+  method,
   payload,
 });
 

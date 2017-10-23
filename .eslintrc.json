@@ -2,7 +2,9 @@
     "extends": "airbnb",
     "rules": {
       "function-paren-newline": ["error", "never"],
-      "jsx-a11y/anchor-is-valid": 0
+      "jsx-a11y/anchor-is-valid": 0,
+      "react/no-unused-state": 0,
+      "react/prop-types": 0
     },
     "env": {
       "browser": true

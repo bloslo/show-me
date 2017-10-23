@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { firebaseApp } from '../firebase';
 import '../CSS/SignIn.css';
 
 class SignIn extends Component {
@@ -13,14 +12,6 @@ class SignIn extends Component {
         message: '',
       },
     };
-  }
-
-  signIn() {
-    const { email, password } = this.state;
-    firebaseApp.auth().signInWithEmailAndPassword(email, password)
-      .catch((error) => {
-        this.setState({ error });
-      });
   }
 
   render() {

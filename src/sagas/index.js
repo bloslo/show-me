@@ -37,8 +37,8 @@ function* read(socket) {
 
 function* write(socket) {
   while (true) {
-    const { payload } = yield take('SEND_MESSAGE');
-    socket.emit('message', payload);
+    const { method, payload } = yield take('SEND_MESSAGE');
+    socket.emit(method, payload);
   }
 }
 

@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://bloslo.github.io/show-me/",
   "dependencies": {
-    "firebase": "^4.6.0",
     "gh-pages": "^1.0.0",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.3",

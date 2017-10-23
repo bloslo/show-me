@@ -1,24 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { firebaseApp } from '../firebase';
+
+import { sendMessage } from '../actions';
 
 class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // name: '', //For Later use with GraphQL.
+      username: '',
       email: '',
       password: '',
-      error: '',
     };
-  }
-
-  signUp() {
-    const { email, password } = this.state;
-    firebaseApp.auth().createUserWithEmailAndPassword(email, password)
-      .catch((error) => {
-        this.setState({ error });
-      });
   }
 
   render() {
@@ -26,6 +19,13 @@ class SignUp extends Component {
       <div className="form-inline" style={{ margin: '5%' }}>
         <h2>Sign Up</h2>
         <div className="form-group">
+          <input
+            className="form-control"
+            type="text"
+            placeholder="Username"
+            style={{ marginRight: '5px' }}
+            onChange={event => this.setState({ username: event.target.value })}
+          />
           <input
             className="form-control"
             type="text"
@@ -43,17 +43,28 @@ class SignUp extends Component {
           <button
             className="btn btn-primary"
             type="button"
-            onClick={() => this.signUp()}
+            onClick={
+              () => this.props.signUp(this.state.username, this.state.email, this.state.password)}
           >
             Sign Up
           </button>
         </div>
         <div><Link to="/signin">Sign In!</Link></div>
-        <div>{this.state.error.message}</div>
+        <div className={this.props.error === '' ? '' : 'alert alert-info'}>{this.props.error}</div>
       </div>
-
     );
   }
 }
 
-export default SignUp;
+const mapStateToProps = state => ({
+  error: state.user.registerError,
+});
+
+const mapDispatchToProps = dispatch => ({
+  signUp: (name, email, pass) => {
+    dispatch(sendMessage('register', { name, email, pass }));
+  },
+});
+
+export default connect(mapStateToProps,
+  mapDispatchToProps)(SignUp);
