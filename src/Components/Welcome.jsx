@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-class Welcome extends Component {
+class welcome extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,4 +15,4 @@ class Welcome extends Component {
   }
 }
 
-export default Welcome;
+export default welcome;

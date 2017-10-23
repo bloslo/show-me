@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 import { sendMessage } from '../actions';
 
-class SignUp extends Component {
+class signUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -67,4 +67,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps,
-  mapDispatchToProps)(SignUp);
+  mapDispatchToProps)(signUp);

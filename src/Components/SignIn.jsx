@@ -5,7 +5,7 @@ import '../CSS/SignIn.css';
 
 import { sendMessage } from '../actions';
 
-class SignIn extends Component {
+class signIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -77,4 +77,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps,
-  mapDispatchToProps)(SignIn);
+  mapDispatchToProps)(signIn);
