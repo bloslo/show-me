@@ -5,10 +5,10 @@ import createSagaMiddleware from 'redux-saga';
 import { createStore, applyMiddleware, compose } from 'redux';
 
 /* Components used */
+import Welcome from './Welcome';
 import Dashboard from './Dashboard';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
-import Welcome from './Welcome';
 
 import rootReducer from '../reducers';
 import mySaga from '../sagas';
