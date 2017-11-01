@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Player from './Player';
-
+import { Link } from 'react-router-dom';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -15,13 +14,22 @@ class Dashboard extends Component {
         <div>
           Dashboard
         </div>
-        <div className="col-md-4">
-          <Player url="http://40.68.124.79:1776/hls/stream.m3u8" />
+        <div className="col-md-4" style={{ marginBottom: '10px', align: 'center', border: '3px solid green' }}>
+          <Link to="/SingleStream">Watch Now!</Link>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4" style={{ marginBottom: '10px', align: 'center', border: '3px solid green'}}>
           Test
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4" style={{ marginBottom: '10px', align: 'center', border: '3px solid green' }}>
+          Test
+        </div>
+        <div className="col-md-4" style={{ marginBottom: '10px', align: 'center', border: '3px solid green' }}>
+          Test
+        </div>
+        <div className="col-md-4" style={{ marginBottom: '10px', align: 'center', border: '3px solid green' }}>
+          Test
+        </div>
+        <div className="col-md-4" style={{ marginBottom: '10px', align: 'center', border: '3px solid green' }}>
           Test
         </div>
       </div>

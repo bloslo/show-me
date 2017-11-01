@@ -9,6 +9,7 @@ import Welcome from './Welcome';
 import Dashboard from './Dashboard';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
+import SingleStream from './SingleStream'
 
 import rootReducer from '../reducers';
 import mySaga from '../sagas';
@@ -28,6 +29,7 @@ const Routes = () => (
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
+        <Route path="/singlestream" component={SingleStream} />
       </div>
     </HashRouter>
   </Provider>);
