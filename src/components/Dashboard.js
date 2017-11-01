@@ -17,7 +17,7 @@ class Dashboard extends Component {
         <div className="col-md-4" style={{ marginBottom: '10px', align: 'center', border: '3px solid green' }}>
           <Link to="/SingleStream">Watch Now!</Link>
         </div>
-        <div className="col-md-4" style={{ marginBottom: '10px', align: 'center', border: '3px solid green'}}>
+        <div className="col-md-4" style={{ marginBottom: '10px', align: 'center', border: '3px solid green' }}>
           Test
         </div>
         <div className="col-md-4" style={{ marginBottom: '10px', align: 'center', border: '3px solid green' }}>
