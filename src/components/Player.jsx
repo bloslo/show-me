@@ -4,9 +4,8 @@ import ReactPlayer from 'react-player'
 class Player extends Component {
   render() {
     return (
-      <ReactPlayer url={this.props.url} />
+      <ReactPlayer url={this.props.url} controls={true} />
     )
   }
 }
-
 export default Player;
