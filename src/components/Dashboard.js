@@ -1,15 +1,29 @@
 import React, { Component } from 'react';
+import Player from './Player';
 
 
 class Dashboard extends Component {
-  signOut() {
-    this.a = 1;
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
   }
 
   render() {
     return (
       <div>
-        Dashboard
+        <div>
+          Dashboard
+        </div>
+        <div className="col-md-4">
+          <Player url="http://40.68.124.79:1776/hls/stream.m3u8" />
+        </div>
+        <div className="col-md-4">
+          Test
+        </div>
+        <div className="col-md-4">
+          Test
+        </div>
       </div>
     );
   }

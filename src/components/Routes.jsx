@@ -24,7 +24,7 @@ const Routes = () => (
   <Provider store={store}>
     <HashRouter path="/">
       <div>
-        <Route path="/" component={Welcome} />
+        <Route path="/welcome" component={Welcome} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
