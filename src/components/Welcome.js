@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import '../CSS/Welcome.css';
 
 class Welcome extends Component {
   constructor(props) {
@@ -10,7 +11,11 @@ class Welcome extends Component {
 
   render() {
     return (
-      <div>Hey <Link to="/signin">Sign in!</Link></div>
+      <div>
+        <div>
+          Hey <Link to="/signin">Sign in!</Link>
+        </div>
+      </div>
     );
   }
 }

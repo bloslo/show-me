@@ -10,7 +10,10 @@ class Player extends Component {
 
   render() {
     return (
-      <ReactPlayer url={this.props.url} controls height="360" width="640" />
+      <div>
+        Single Stream
+      <ReactPlayer url={this.props.url} controls />
+      </div>
     );
   }
 }
