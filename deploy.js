@@ -14,6 +14,6 @@ const config = {
 };
 
 ftpDeploy.deploy(config, (err) => {
-  if (err) console.log(err);
-  else console.log('finished');
+  if (err) console.log(err); // eslint-disable-line no-console
+  else console.log('finished');// eslint-disable-line no-console
 });
