@@ -2,8 +2,9 @@
   "name": "show-me",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://showme.zapto.org/show-me/",
+  "homepage": "http://i301497.hera.fhict.nl/",
   "dependencies": {
+    "ftp-deploy": "^1.2.2",
     "gh-pages": "^1.0.0",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.3",
