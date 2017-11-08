@@ -2,7 +2,7 @@
   "name": "show-me",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://i301497.hera.fhict.nl/",
+  "homepage": "showme.zapto.org",
   "dependencies": {
     "ftp-deploy": "^1.2.2",
     "gh-pages": "^1.0.0",
