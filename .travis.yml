@@ -14,3 +14,4 @@ deploy:
   local_dir: build
   on:
     branch: master
+    fqdn: showme.zapto.org
