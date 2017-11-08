@@ -9,7 +9,7 @@ import Welcome from './Welcome';
 import Dashboard from './Dashboard';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
-import SingleStream from './SingleStream'
+import SingleStream from './SingleStream';
 
 import rootReducer from '../reducers';
 import mySaga from '../sagas';
