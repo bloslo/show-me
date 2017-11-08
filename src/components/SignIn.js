@@ -5,6 +5,17 @@ import '../CSS/SignIn.css';
 
 import { sendMessage } from '../actions';
 
+const styles = {
+	formInline: {
+    display: "flex",
+    flexDirection: "column",
+		width: "100%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center"
+	}
+};
+
 class SignIn extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +32,7 @@ class SignIn extends Component {
 
   render() {
     return (
-      <div className="form-inline">
+      <div className="form-inline" style={styles.formInline}>
         <h2>Sign In</h2>
         <div className="input-group" style={{ marginBottom: '10px' }}>
           <span className="input-group-addon">
