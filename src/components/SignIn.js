@@ -6,7 +6,7 @@ import '../CSS/SignIn.css';
 import { sendMessage } from '../actions';
 
 const styles = {
-  foeslintrmInline: {
+  formInline: {
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
