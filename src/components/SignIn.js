@@ -6,14 +6,14 @@ import '../CSS/SignIn.css';
 import { sendMessage } from '../actions';
 
 const styles = {
-	formInline: {
-    display: "flex",
-    flexDirection: "column",
-		width: "100%",
-    height: "100%",
-    alignItems: "center",
-    justifyContent: "center"
-	}
+  foeslintrmInline: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 };
 
 class SignIn extends Component {
