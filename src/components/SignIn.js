@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import '../CSS/SignIn.css';
 
 import { sendMessage } from '../actions';
 
