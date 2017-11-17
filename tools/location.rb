@@ -1,3 +1,4 @@
+# before running install
 # gem install socket.io-client-simple
 require 'rubygems'
 require 'socket.io-client-simple'
