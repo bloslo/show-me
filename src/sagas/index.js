@@ -24,7 +24,6 @@ function subscribe(socket) {
       }
     });
     socket.on('phonemeta', (data) => {
-      alert(data);
       emit(phoneMetaUpdate(data));
     });
     return () => {};
