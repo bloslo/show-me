@@ -1,0 +1,93 @@
+.backgrounds {
+  background: #ecf0f1;
+  min-height: 100vh;
+  margin: 0px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+
+.div-content {
+  background: transparent;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  height: 50%;
+  width: 80%;
+  max-width: 1000px;
+}
+
+.div-content-video {
+  background: transparent;
+  text-align: center;
+  float: left;
+  height: 100%;
+  width: 70%;
+}
+
+.div-content-chat {
+  background: transparent;
+  text-align: center;
+  float: right;
+  height: 100%;
+  width: 30%;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.div-content-player {
+  background: transparent;
+  height: 80%;
+  width: 100%;
+}
+
+.div-content-description {
+  height: 20%;
+  width: 100%;
+  text-align: left;
+}
+
+.div-player {
+  background: #f1c40f;
+  text-align: center;
+  height: 320px;
+  width: 640px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.title {
+  font-size: 30px;
+  font-family: 'Lato';
+  font-weight: bold;
+  margin: 5px;
+}
+
+.streamer {
+  font-size: 15px;
+  font-family: 'Lato';
+  font-weight: bold;
+  margin: 5px;
+}
+
+.streaming {
+  font-size: 30px;
+  font-family: 'Lato';
+  font-weight: bold;
+  margin-right: 20px;
+  margin-top: 5px;
+}
+
+.div-title {
+  float: left;
+  text-align: left;
+}
+
+.div-viewers {
+  float: right;
+  text-align: right;
+}

@@ -39,7 +39,7 @@ class Welcome extends Component {
             <span className="font3">Share Your Experience with People!</span>
             <br /><br />
             <Link to="/signup">
-              <button type="button" className="btn btn-warning btn-lg" >Share Now!</button>
+              <button type="button" className="btn btn-warning btn-lg">Share Now!</button>
             </Link>
           </div>
         </div>
