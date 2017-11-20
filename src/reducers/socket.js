@@ -1,15 +1,15 @@
 const socket = (state = { connected: false }, action) => {
   switch (action.type) {
     case 'CONNECT':
-      return Object.assign(state,
-        {
-          connected: true,
-        });
+      return {
+        ...state,
+        connected: true,
+      };
     case 'DISCONNECT':
-      return Object.assign(state,
-        {
-          connected: false,
-        });
+      return {
+        ...state,
+        connected: false,
+      };
     default:
       return state;
   }

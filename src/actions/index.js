@@ -38,6 +38,10 @@ export const sendMessage = (method, payload) => ({
   payload,
 });
 
+export const phoneMetaUpdate = message => ({
+  type: 'PHONEMETA_UPDATE',
+  message,
+});
 
 /*
 Example of action with parameter

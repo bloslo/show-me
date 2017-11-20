@@ -1,7 +1,7 @@
 import io from 'socket.io-client';
 import { eventChannel } from 'redux-saga';
 import { fork, put, call, takeEvery, cancel, take } from 'redux-saga/effects';
-import { makeConnection, connectionFailed, logIn, logInFailed, register, registerFailed, disconnect, connect } from '../actions';
+import { makeConnection, connectionFailed, logIn, logInFailed, register, registerFailed, disconnect, connect, phoneMetaUpdate } from '../actions';
 
 function* startApp() {
   yield put(makeConnection());
@@ -22,6 +22,9 @@ function subscribe(socket) {
       } else {
         emit(registerFailed(data.message));
       }
+    });
+    socket.on('phonemeta', (data) => {
+      emit(phoneMetaUpdate(data));
     });
     return () => {};
   });
