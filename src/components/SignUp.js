@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
 import { sendMessage } from '../actions';
+import '../CSS/SignUp.css';
 
 class SignUp extends Component {
   constructor(props) {
@@ -16,41 +16,51 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div className="form-inline" style={{ margin: '5%' }}>
-        <h2>Sign Up</h2>
-        <div className="form-group">
-          <input
-            className="form-control"
-            type="text"
-            placeholder="Username"
-            style={{ marginRight: '5px' }}
-            onChange={event => this.setState({ username: event.target.value })}
-          />
-          <input
-            className="form-control"
-            type="text"
-            placeholder="E-Mail"
-            style={{ marginRight: '5px' }}
-            onChange={event => this.setState({ email: event.target.value })}
-          />
-          <input
-            className="form-control"
-            type="password"
-            placeholder="Password"
-            style={{ marginRight: '5px' }}
-            onChange={event => this.setState({ password: event.target.value })}
-          />
-          <button
-            className="btn btn-primary"
-            type="button"
-            onClick={
+      <div>
+        <div className="background">
+          <div className="navright">
+            <Link to="/signin">
+              <button type="button" className="btn btn-warning btn-signup">Sign In</button>
+            </Link>
+          </div>
+          <div className="formholder">
+            <div className="form-inline">
+              <div className="input-group" style={{ marginBottom: '15px' }}>
+                <input
+                  className="form-control input-textbox input-lg"
+                  type="text"
+                  placeholder="Username"
+                  style={{ marginBottom: '15px' }}
+                  onChange={event => this.setState({ username: event.target.value })}
+                />
+                <input
+                  className="form-control input-textbox input-lg"
+                  type="text"
+                  placeholder="E-Mail"
+                  style={{ marginBottom: '15px' }}
+                  onChange={event => this.setState({ email: event.target.value })}
+                />
+                <input
+                  className="form-control input-textbox input-lg"
+                  type="password"
+                  placeholder="Password"
+                  style={{ marginBottom: '25px' }}
+                  onChange={event => this.setState({ password: event.target.value })}
+                />
+                <button
+                  className="btn btn-warning btn-lg btn-signin"
+                  type="button"
+                  style={{ marginBottom: '15px' }}
+                  onClick={
               () => this.props.signUp(this.state.username, this.state.email, this.state.password)}
-          >
+                >
             Sign Up
-          </button>
+                </button>
+              </div>
+              <div className={this.props.error === '' ? '' : 'alert alert-info'}>{this.props.error}</div>
+            </div>
+          </div>
         </div>
-        <div><Link to="/signin">Sign In!</Link></div>
-        <div className={this.props.error === '' ? '' : 'alert alert-info'}>{this.props.error}</div>
       </div>
     );
   }

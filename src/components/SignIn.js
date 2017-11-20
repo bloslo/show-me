@@ -1,19 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
 import { sendMessage } from '../actions';
-
-const styles = {
-  formInline: {
-    display: 'flex',
-    flexDirection: 'column',
-    width: '100%',
-    height: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-};
+import '../CSS/SignIn.css';
 
 class SignIn extends Component {
   constructor(props) {
@@ -31,45 +20,52 @@ class SignIn extends Component {
 
   render() {
     return (
-      <div className="form-inline" style={styles.formInline}>
-        <h2>Sign In</h2>
-        <div className="input-group" style={{ marginBottom: '10px' }}>
-          <span className="input-group-addon">
-            <i className="glyphicon glyphicon-user" />
-          </span>
-          <input
-            className="form-control"
-            type="text"
-            placeholder="Username"
-            onChange={event => this.setState({ username: event.target.value })}
-          />
-        </div>
-        <br />
-        <div className="input-group" style={{ marginBottom: '10px' }}>
-          <span className="input-group-addon">
-            <i className="glyphicon glyphicon-lock" />
-          </span>
-          <input
-            className="form-control"
-            type="password"
-            placeholder="Password"
-            onChange={event => this.setState({ password: event.target.value })}
-          />
-        </div>
-        <br />
-        <button
-          className="btn btn-primary"
-          type="button"
-          onClick={
-              () => this.props.signIn(this.state.username, this.state.password)}
-          style={{ marginBottom: '10px' }}
-        >
-          Sign In
-        </button>
+      <div>
+        <div className="background">
+          <div className="navright">
+            <Link to="/signup">
+              <button type="button" className="btn btn-warning btn-signup">Sign Up</button>
+            </Link>
+          </div>
+          <div className="formholder">
+            <div className="form-inline">
+              <div className="input-group" style={{ marginBottom: '15px' }}>
+                <input
+                  className="form-control input-textbox input-lg"
+                  type="text"
+                  placeholder="Username"
+                  onChange={event => this.setState({ username: event.target.value })}
+                />
+              </div>
+              <br />
+              <div className="input-group" style={{ marginBottom: '25px' }}>
+                {/*
+                <span className="input-group-addon">
+                  <i className="glyphicon glyphicon-lock" />
+                </span>
+                */}
+                <input
+                  className="form-control input-textbox input-lg"
+                  type="password"
+                  placeholder="Password"
+                  onChange={event => this.setState({ password: event.target.value })}
+                />
+              </div>
+              <br />
+              <button
+                className="btn btn-warning btn-lg btn-signin"
+                type="button"
+                onClick={
+                () => this.props.signIn(this.state.username, this.state.password)}
+                style={{ marginBottom: '15px' }}
+              >
+              Sign In
+              </button>
 
-        <div><Link to="/signup">Register Now!</Link></div>
-
-        <div className={this.props.error === '' ? '' : 'alert alert-info'}>{this.props.error}</div>
+              <div className={this.props.error === '' ? '' : 'alert alert-danger'}>{this.props.error}</div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
