@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactPlayer from 'react-player';
 import Player from './Player';
 import '../CSS/SingleStream.css';
 
