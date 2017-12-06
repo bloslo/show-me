@@ -18,9 +18,10 @@
   margin: 0px;
 }
 
-.div-dashboard-row {
+.div-dashboard-cell {
   height: 32vh;
-  width: 33.333%;
+  width: 25%;
+  min-width: 25%;
   margin: 0px;
   float: left;
 }

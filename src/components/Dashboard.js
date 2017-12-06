@@ -19,7 +19,7 @@ class Dashboard extends Component {
             Navigation
           </div>
           <div className="div-dashboard-content">
-            <div className="div-dashboard-row">
+            <div className="div-dashboard-cell">
               <div className="div-dashboard-video-holder">
                 <div className="div-dashboard-video">
                   <Link to="/SingleStream">
@@ -30,7 +30,7 @@ class Dashboard extends Component {
                   <div className="dashboard-title">
                     <span className="dashboard-title-font">
                         Our First Stream!
-                    </span>  
+                    </span>
                     <br />
                     <span className="dashboard-author-font">
                       NinjaCoders
@@ -44,7 +44,7 @@ class Dashboard extends Component {
                 </div>
               </div>
             </div>
-            <div className="div-dashboard-row">
+            <div className="div-dashboard-cell">
               <div className="div-dashboard-video-holder">
                 <div className="div-dashboard-video">
                   <ReactPlayer url="https://www.youtube.com/watch?v=UKvnoCmGdEY" width={320} height={170} />
@@ -67,7 +67,7 @@ class Dashboard extends Component {
                 </div>
               </div>
             </div>
-            <div className="div-dashboard-row">
+            <div className="div-dashboard-cell">
               <div className="div-dashboard-video-holder">
                 <div className="div-dashboard-video">
                   <ReactPlayer url="https://www.youtube.com/watch?v=ysz5S6PUM-U" width={320} height={170} />
@@ -90,7 +90,7 @@ class Dashboard extends Component {
                 </div>
               </div>
             </div>
-            <div className="div-dashboard-row">
+            <div className="div-dashboard-cell">
               <div className="div-dashboard-video-holder">
                 <div className="div-dashboard-video">
                   <ReactPlayer url="https://www.youtube.com/watch?v=cPE9nfdasSs" width={320} height={170} />
@@ -113,7 +113,7 @@ class Dashboard extends Component {
                 </div>
               </div>
             </div>
-            <div className="div-dashboard-row">
+            <div className="div-dashboard-cell">
               <div className="div-dashboard-video-holder">
                 <div className="div-dashboard-video">
                   <ReactPlayer url="https://www.youtube.com/watch?v=i6dQU5_dKN0" width={320} height={170} />
@@ -136,7 +136,7 @@ class Dashboard extends Component {
                 </div>
               </div>
             </div>
-            <div className="div-dashboard-row">
+            <div className="div-dashboard-cell">
               <div className="div-dashboard-video-holder">
                 <div className="div-dashboard-video">
                   <ReactPlayer url="https://www.youtube.com/watch?v=Kb24RrHIbFk" width={320} height={170} />
@@ -159,7 +159,7 @@ class Dashboard extends Component {
                 </div>
               </div>
             </div>
-            <div className="div-dashboard-row">
+            <div className="div-dashboard-cell">
               <div className="div-dashboard-video-holder">
                 <div className="div-dashboard-video">
                   <ReactPlayer url="https://www.youtube.com/watch?v=8R7M1KB0kJQ" width={320} height={170} ctrl={false} />
@@ -182,7 +182,7 @@ class Dashboard extends Component {
                 </div>
               </div>
             </div>
-            <div className="div-dashboard-row">
+            <div className="div-dashboard-cell">
               <div className="div-dashboard-video-holder">
                 <div className="div-dashboard-video">
                   <ReactPlayer url="https://www.youtube.com/watch?v=Kp7eSUU9oy8" width={320} height={170} />
@@ -205,7 +205,7 @@ class Dashboard extends Component {
                 </div>
               </div>
             </div>
-            <div className="div-dashboard-row">
+            <div className="div-dashboard-cell">
               <div className="div-dashboard-video-holder">
                 <div className="div-dashboard-video">
                   <ReactPlayer url="https://www.youtube.com/watch?v=adDD43CvrUc" width={320} height={170} />
