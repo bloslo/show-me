@@ -8,6 +8,7 @@
     "gh-pages": "^1.0.0",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.3",
+    "react-cartographer": "^0.4.4",
     "react-dom": "^16.0.0",
     "react-player": "^0.25.3",
     "react-redux": "^5.0.6",
