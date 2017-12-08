@@ -11,7 +11,12 @@ class Player extends Component {
   render() {
     return (
       <div>
-        <ReactPlayer url={this.props.url} controls={this.props.ctrl} width={this.props.w} height={this.props.h} />
+        <ReactPlayer
+          url={this.props.url}
+          controls={this.props.ctrl}
+          width={this.props.w}
+          height={this.props.h}
+        />
       </div>
     );
   }
