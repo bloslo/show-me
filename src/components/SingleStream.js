@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Map from 'react-cartographer/lib/components/Map';
+import { connect } from 'react-redux';
 import Player from './Player';
 import '../CSS/SingleStream.css';
 
@@ -29,7 +31,7 @@ class SingleStream extends Component {
                   </span>
                   <br />
                   <span className="streamer">
-                  Ninja Coders
+                    Ninja Coders
                   </span>
                 </div>
                 <div className="div-viewers">
@@ -41,6 +43,16 @@ class SingleStream extends Component {
             </div>
             <div className="div-content-chat">
               Chat
+              <Map
+                provider="bing"
+                providerKey="Amj7pSZWD5oZnNFwW-texm2udFXbwW--DheMlmgbdUUxgh0zJtLQ8X6iGfe4c0bS"
+                mapId="bing_map"
+                latitude={this.props.lat}
+                longitude={this.props.long}
+                zoom={17}
+                height={270}
+                width={580}
+              />
             </div>
           </div>
         </div>
@@ -49,5 +61,12 @@ class SingleStream extends Component {
   }
 }
 
-export default SingleStream;
+const mapStateToProps = state => ({
+  lat: state.stream.location.lat,
+  long: state.stream.location.long,
+});
 
+const mapDispatchToProps = () => ({
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleStream);
