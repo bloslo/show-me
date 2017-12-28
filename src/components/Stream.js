@@ -4,7 +4,7 @@ import Map from './Map';
 import Player from './Player';
 import '../CSS/SingleStream.css';
 
-class SingleStream extends Component {
+class Stream extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +22,7 @@ class SingleStream extends Component {
             <div className="div-content-video">
               <div className="div-content-player">
                 <div className="div-player">
-                  <Player url="http://40.68.124.79:1776/hls/stream.m3u8" w={640} h={340} ctrl="true" />
+                  <Player url={`http://40.68.124.79:1776/hls/${this.props.match.params.uuid}.m3u8`} w={640} h={340} ctrl="true" />
                 </div>
               </div>
               <div className="div-content-description">
@@ -69,4 +69,4 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = () => ({
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SingleStream);
+export default connect(mapStateToProps, mapDispatchToProps)(Stream);
