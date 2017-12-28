@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { sendMessage } from '../actions';
 import Map from './Map';
 import Player from './Player';
 import '../CSS/SingleStream.css';
@@ -8,10 +9,8 @@ class Stream extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      password: '',
-      height: 0,
     };
+    this.props.joinRoom(this.props.match.params.uuid);
   }
 
   render() {
@@ -66,7 +65,10 @@ const mapStateToProps = state => ({
   long: state.stream.location.long,
 });
 
-const mapDispatchToProps = () => ({
+const mapDispatchToProps = dispatch => ({
+  joinRoom: (uuid) => {
+    dispatch(sendMessage('joinRoom', uuid));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Stream);
