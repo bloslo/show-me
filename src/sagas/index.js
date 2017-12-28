@@ -53,7 +53,7 @@ function* handleIO(socket) {
 
 function* connectionFlow() {
   // yield put({ type: 'START_CONNECTING' });
-  const socket = io('http://40.68.124.79:9090');
+  const socket = io('http://showmedocker.zapto.org:9090');
   const succeed = yield call(() => new Promise((resolve) => {
     socket.on('connect', () => {
       resolve(true);
