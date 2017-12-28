@@ -21,7 +21,7 @@ class Stream extends Component {
             <div className="div-content-video">
               <div className="div-content-player">
                 <div className="div-player">
-                  <Player url={`http://40.68.124.79:1776/hls/${this.props.match.params.uuid}.m3u8`} w={640} h={340} ctrl="true" />
+                  <Player url={`http://showmedocker.zapto.org:1776/hls/${this.props.match.params.uuid}.m3u8`} w={640} h={340} ctrl="true" />
                 </div>
               </div>
               <div className="div-content-description">
