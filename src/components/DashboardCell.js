@@ -15,8 +15,8 @@ class DashboardCell extends Component {
         <div className="div-dashboard-cell">
           <div className="div-dashboard-video-holder">
             <div className="div-dashboard-video">
-              <Link to="/SingleStream">
-                <Player url="http://40.68.124.79:1776/hls/stream.m3u8" w={320} h={170} />
+              <Link to={`/stream/${this.props.stream.uuid}`}>
+                <Player url={`http://showmedocker.zapto.org:1776/hls/${this.props.stream.uuid}.m3u8`} w={320} h={170} />
               </Link>
             </div>
             <div className="dashboard-description">
@@ -26,7 +26,7 @@ class DashboardCell extends Component {
                 </span>
                 <br />
                 <span className="dashboard-author-font">
-                      NinjaCoders
+                  {this.props.stream.username}
                 </span>
               </div>
               <div className="dashboard-streamer">

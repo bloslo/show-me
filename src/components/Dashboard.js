@@ -20,7 +20,9 @@ class Dashboard extends Component {
             Navigation
           </div>
           <div className="div-dashboard-content">
-            <DashboardCell />
+            {
+              this.props.streams.map(x => (<DashboardCell stream={x} />))
+            }
           </div>
         </div>
       </div>
@@ -28,7 +30,8 @@ class Dashboard extends Component {
   }
 }
 
-const mapStateToProps = () => ({
+const mapStateToProps = state => ({
+  streams: state.streamlist.streams,
 });
 
 const mapDispatchToProps = dispatch => ({
