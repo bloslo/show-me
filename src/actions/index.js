@@ -43,6 +43,16 @@ export const phoneMetaUpdate = message => ({
   message,
 });
 
+export const streamListUpdate = message => ({
+  type: 'STREAMLIST_UPDATE',
+  message,
+});
+
+export const streamListUpdateFailed = message => ({
+  type: 'STREAMLIST_UPDATEFAILED',
+  message,
+});
+
 /*
 Example of action with parameter
 export const toggleTodo = (id) => ({
