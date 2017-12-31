@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import '../CSS/Dashboard.css';
 import DashboardCell from './DashboardCell';
+import { sendMessage } from '../actions';
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
     };
+    setTimeout(() => this.props.getStreamersList(), 500);
   }
 
   render() {
@@ -17,7 +20,9 @@ class Dashboard extends Component {
             Navigation
           </div>
           <div className="div-dashboard-content">
-            <DashboardCell />
+            {
+              this.props.streams.map(x => (<DashboardCell stream={x} />))
+            }
           </div>
         </div>
       </div>
@@ -25,4 +30,14 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+const mapStateToProps = state => ({
+  streams: state.streamlist.streams,
+});
+
+const mapDispatchToProps = dispatch => ({
+  getStreamersList: () => {
+    dispatch(sendMessage('getStreamers', null));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
