@@ -41,6 +41,12 @@
   max-width: 320px;
 }
 
+.div-dashboard-video b {
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
 .dashboard-description {
   text-align: left;
 }

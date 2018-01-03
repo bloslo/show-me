@@ -2,7 +2,20 @@ import io from 'socket.io-client';
 import { eventChannel } from 'redux-saga';
 import { fork, put, call, takeEvery, cancel, take } from 'redux-saga/effects';
 import {
-  makeConnection, connectionFailed, logIn, logInFailed, register, registerFailed, disconnect, connect, phoneMetaUpdate, streamListUpdate, streamListUpdateFailed } from '../actions';
+  makeConnection,
+  connectionFailed,
+  logIn,
+  logInFailed,
+  register,
+  registerFailed,
+  disconnect,
+  connect,
+  phoneMetaUpdate,
+  streamListUpdate,
+  streamListUpdateFailed,
+  streamListSubscribedUpdate,
+  streamListSubscribedUpdateFailed,
+} from '../actions';
 
 function* startApp() {
   yield put(makeConnection());
@@ -32,6 +45,14 @@ function subscribe(socket) {
         emit(streamListUpdate(data.data));
       } else {
         emit(streamListUpdateFailed(data.message));
+      }
+    });
+
+    socket.on('subsribers', (data) => {
+      if (data.succeed) {
+        emit(streamListSubscribedUpdate(data.data));
+      } else {
+        emit(streamListSubscribedUpdateFailed(data.message));
       }
     });
     return () => {};

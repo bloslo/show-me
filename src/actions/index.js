@@ -53,6 +53,16 @@ export const streamListUpdateFailed = message => ({
   message,
 });
 
+export const streamListSubscribedUpdate = message => ({
+  type: 'STREAMLISTSUBSCRIBED_UPDATE',
+  message,
+});
+
+export const streamListSubscribedUpdateFailed = message => ({
+  type: 'STREAMLISTSUBSRIBED_UPDATEFAILED',
+  message,
+});
+
 /*
 Example of action with parameter
 export const toggleTodo = (id) => ({
