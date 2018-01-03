@@ -15,6 +15,7 @@ import {
   streamListUpdateFailed,
   streamListSubscribedUpdate,
   streamListSubscribedUpdateFailed,
+  redirect,
 } from '../actions';
 
 function* startApp() {
@@ -55,6 +56,9 @@ function subscribe(socket) {
         emit(streamListSubscribedUpdateFailed(data.message));
       }
     });
+    socket.on('redirect', (data) => {
+      emit(redirect(data));
+    });
     return () => {};
   });
 }
@@ -82,7 +86,7 @@ function* handleIO(socket) {
 
 function* connectionFlow() {
   // yield put({ type: 'START_CONNECTING' });
-  const socket = io('http://showmedocker.zapto.org:9090');
+  const socket = io('http://0.0.0.0:9090');
   const succeed = yield call(() => new Promise((resolve) => {
     socket.on('connect', () => {
       resolve(true);

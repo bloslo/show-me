@@ -63,6 +63,11 @@ export const streamListSubscribedUpdateFailed = message => ({
   message,
 });
 
+export const redirect = url => ({
+  type: 'REDIRECT',
+  url,
+});
+
 /*
 Example of action with parameter
 export const toggleTodo = (id) => ({
