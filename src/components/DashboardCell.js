@@ -10,14 +10,22 @@ class DashboardCell extends Component {
   }
 
   render() {
+    const showStream = () => {
+      if (this.props.stream.uuid !== '') {
+        return (
+          <Link to={`/stream/${this.props.stream.uuid}`}>
+            <Player url={`http://showmedocker.zapto.org:1776/hls/${this.props.stream.uuid}.m3u8`} w={320} h={170} />
+          </Link>);
+      }
+      return (<b>OFFLINE</b>);
+    };
+
     return (
       <div>
         <div className="div-dashboard-cell">
           <div className="div-dashboard-video-holder">
             <div className="div-dashboard-video">
-              <Link to={`/stream/${this.props.stream.uuid}`}>
-                <Player url={`http://showmedocker.zapto.org:1776/hls/${this.props.stream.uuid}.m3u8`} w={320} h={170} />
-              </Link>
+              {showStream()}
             </div>
             <div className="dashboard-description">
               <div className="dashboard-title">
