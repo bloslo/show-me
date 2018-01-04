@@ -9,7 +9,7 @@ class Dashboard extends Component {
     super(props);
     this.state = {
     };
-    setTimeout(() => this.props.getStreamersList(), 500);
+    this.props.getStreamersList();
   }
 
   render() {
