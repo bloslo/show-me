@@ -40,7 +40,7 @@ class Stream extends Component {
                   </span>
                   <br />
                   <span className="streamer">
-                      { this.state.streamer }
+                    { this.state.streamer }
                   </span>
                 </div>
                 <div className="div-viewers">
@@ -53,6 +53,16 @@ class Stream extends Component {
                         <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
                         <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
                       </form>
+                    </div>
+                    <div>
+                      <button
+                        className="btn"
+                        type="button"
+                        onClick={
+                            () => this.props.pay(this.state.streamer)}
+                      >
+                        Pay
+                      </button>
                     </div>
                   </span>
                 </div>
@@ -79,6 +89,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   joinRoom: (uuid) => {
     dispatch(sendMessage('joinRoom', uuid));
+  },
+  pay: (subscribeTo) => {
+    dispatch(sendMessage('pay', { subscribeTo }));
   },
 });
 
