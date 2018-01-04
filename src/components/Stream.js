@@ -8,6 +8,9 @@ import '../CSS/SingleStream.css';
 class Stream extends Component {
   constructor(props) {
     super(props);
+    if (!this.props.loggedIn) {
+      this.props.history.replace('/signin');
+    }
     this.state = {
     };
     this.props.joinRoom(this.props.match.params.uuid);
@@ -63,6 +66,7 @@ class Stream extends Component {
 const mapStateToProps = state => ({
   lat: state.stream.location.lat,
   long: state.stream.location.long,
+  loggedIn: state.user.loggedIn,
 });
 
 const mapDispatchToProps = dispatch => ({
