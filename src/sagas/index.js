@@ -117,7 +117,15 @@ function* connectionFlow() {
   }
 }
 
+function* onRedirect({ url }) {
+  yield call(() => new Promise((resolve) => {
+    window.open(url.url);
+    resolve();
+  }));
+}
+
 function* mySaga() {
+  yield takeEvery('REDIRECT', onRedirect);
   yield takeEvery('MAKE_CONNECTION', connectionFlow);
   yield takeEvery('DISCONNECTED', connectionFlow);
   yield takeEvery('CONNECTION_FAILED', connectionFlow);
