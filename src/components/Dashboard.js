@@ -30,7 +30,7 @@ class Dashboard extends Component {
               }
             </div>
             <br style={{ clear: 'both' }} />
-            <h2>Subribed</h2>
+            <h2>Subscribed</h2>
             <div>
               {
                 this.props.subscribed.map(x => (<DashboardCell stream={x} />))
