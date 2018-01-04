@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { sendMessage } from '../actions';
+import { sendMessage, chatUpdate } from '../actions';
 import Map from './Map';
 import Player from './Player';
 import '../CSS/SingleStream.css';
@@ -50,7 +50,15 @@ class Stream extends Component {
               </div>
             </div>
             <div className="div-content-chat">
-              Chat
+              <div>
+                {this.props.chatMsg}
+              </div>
+              <div>
+                <form>
+                  <input autoComplete="off" />
+                  <button>Send</button>
+                </form>
+              </div>
               <Map lat={this.props.lat} long={this.props.long} />
             </div>
           </div>
@@ -63,11 +71,15 @@ class Stream extends Component {
 const mapStateToProps = state => ({
   lat: state.stream.location.lat,
   long: state.stream.location.long,
+  chatMsg: state.chatMsg,
 });
 
 const mapDispatchToProps = dispatch => ({
   joinRoom: (uuid) => {
     dispatch(sendMessage('joinRoom', uuid));
+  },
+  sendChatMsg: (msg) => {
+    dispatch(chatUpdate(msg));
   },
 });
 
