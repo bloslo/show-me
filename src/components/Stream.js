@@ -12,8 +12,14 @@ class Stream extends Component {
       this.props.history.replace('/signin');
     }
     this.state = {
+      streamer: '',
     };
     this.props.joinRoom(this.props.match.params.uuid);
+    const currentStreamer =
+        this.props.streams.find(streamer => streamer.uuid === this.props.match.params.uuid);
+    if (currentStreamer) {
+      this.state = { ...this.state, streamer: currentStreamer.username };
+    }
   }
 
   render() {
@@ -34,7 +40,7 @@ class Stream extends Component {
                   </span>
                   <br />
                   <span className="streamer">
-                    Ninja Coders
+                      { this.state.streamer }
                   </span>
                 </div>
                 <div className="div-viewers">
@@ -67,6 +73,7 @@ const mapStateToProps = state => ({
   lat: state.stream.location.lat,
   long: state.stream.location.long,
   loggedIn: state.user.loggedIn,
+  streams: state.streamlist.streams,
 });
 
 const mapDispatchToProps = dispatch => ({
