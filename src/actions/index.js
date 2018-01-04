@@ -68,6 +68,11 @@ export const redirect = url => ({
   url,
 });
 
+export const chatUpdate = message => ({
+  type: 'CHAT_UPDATE',
+  message,
+});
+
 /*
 Example of action with parameter
 export const toggleTodo = (id) => ({
