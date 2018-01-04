@@ -7,9 +7,12 @@ import { sendMessage } from '../actions';
 class Dashboard extends Component {
   constructor(props) {
     super(props);
+    if (!this.props.loggedIn) {
+      this.props.history.replace('/signin');
+    }
     this.state = {
     };
-    setTimeout(() => this.props.getStreamersList(), 500);
+    this.props.getStreamersList();
   }
 
   render() {
@@ -43,6 +46,7 @@ class Dashboard extends Component {
 const mapStateToProps = state => ({
   streams: state.streamlist.streams,
   subscribed: state.streamlist.subscribed,
+  loggedIn: state.user.loggedIn,
 });
 
 const mapDispatchToProps = dispatch => ({
