@@ -10,7 +10,7 @@ class Stream extends Component {
     super(props);
     this.state = {
     };
-    setTimeout(() => this.props.joinRoom(this.props.match.params.uuid), 500);
+    this.props.joinRoom(this.props.match.params.uuid);
   }
 
   render() {
