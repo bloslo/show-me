@@ -61,7 +61,7 @@ function subscribe(socket) {
       emit(redirect(data));
     });
 
-    socket.on('chatMessage', (data) => {
+    socket.on('newMessage', (data) => {
       emit(chatUpdate(data));
     });
     return () => {};

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { sendMessage, chatUpdate } from '../actions';
+import { sendMessage } from '../actions';
 import Map from './Map';
 import Player from './Player';
 import '../CSS/SingleStream.css';
@@ -13,10 +13,11 @@ class Stream extends Component {
     }
     this.state = {
       streamer: '',
+      message: '',
     };
     this.props.joinRoom(this.props.match.params.uuid);
     const currentStreamer =
-        this.props.streams.find(streamer => streamer.uuid === this.props.match.params.uuid);
+      this.props.streams.find(streamer => streamer.uuid === this.props.match.params.uuid);
     if (currentStreamer) {
       this.state = { ...this.state, streamer: currentStreamer.username };
     }
@@ -30,7 +31,7 @@ class Stream extends Component {
             <div className="div-content-video">
               <div className="div-content-player">
                 <div className="div-player">
-                  <Player url={`http://showmedocker.zapto.org:1776/hls/${this.props.match.params.uuid}.m3u8`} w={640} h={340} ctrl="true" />
+                  <Player url={`http://showmedocker.zapto.org:1776/hls/${this.props.match.params.uuid}.m3u8`} w={640} h={340} ctrl />
                 </div>
               </div>
               <div className="div-content-description">
@@ -40,7 +41,7 @@ class Stream extends Component {
                   </span>
                   <br />
                   <span className="streamer">
-                    { this.state.streamer }
+                    {this.state.streamer}
                   </span>
                 </div>
                 <div className="div-viewers">
@@ -59,7 +60,7 @@ class Stream extends Component {
                         className="btn"
                         type="button"
                         onClick={
-                            () => this.props.pay(this.state.streamer)}
+                          () => this.props.pay(this.state.streamer)}
                       >
                         Pay
                       </button>
@@ -70,12 +71,17 @@ class Stream extends Component {
             </div>
             <div className="div-content-chat">
               <div>
-                {this.props.chatMsg}
+                {this.props.chatMsg.map((msg, index) => (
+                  <div className="message" key={index}>{msg.user}: {msg.msg}</div> // eslint-disable-line
+                ))}
               </div>
               <div>
                 <form>
-                  <input autoComplete="off" />
-                  <button>Send</button>
+                  <input
+                    autoComplete="off"
+                    onChange={event => this.setState({ message: event.target.value })}
+                  />
+                  <button onClick={() => this.props.sendChatMsg(this.state.message)}>Send</button>
                 </form>
               </div>
               <Map lat={this.props.lat} long={this.props.long} />
@@ -90,7 +96,7 @@ class Stream extends Component {
 const mapStateToProps = state => ({
   lat: state.stream.location.lat,
   long: state.stream.location.long,
-  chatMsg: state.chatMsg,
+  chatMsg: state.chat.chatMsg,
   loggedIn: state.user.loggedIn,
   streams: state.streamlist.streams,
 });
@@ -100,7 +106,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(sendMessage('joinRoom', uuid));
   },
   sendChatMsg: (msg) => {
-    dispatch(chatUpdate(msg));
+    dispatch(sendMessage('chatMessage', msg));
   },
   pay: (subscribeTo) => {
     dispatch(sendMessage('pay', { subscribeTo }));

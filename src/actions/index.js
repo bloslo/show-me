@@ -68,9 +68,9 @@ export const redirect = url => ({
   url,
 });
 
-export const chatUpdate = message => ({
+export const chatUpdate = data => ({
   type: 'CHAT_UPDATE',
-  message,
+  data,
 });
 
 /*

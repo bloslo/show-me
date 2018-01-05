@@ -3,7 +3,7 @@ const chat = (state = { chatMsg: [] }, action) => {
     case 'CHAT_UPDATE':
       return {
         ...state,
-        chatMsg: action.message,
+        chatMsg: [...state.chatMsg, action.data],
       };
     default:
       return state;
