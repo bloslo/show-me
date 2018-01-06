@@ -16,6 +16,7 @@ import {
   streamListSubscribedUpdate,
   streamListSubscribedUpdateFailed,
   redirect,
+  chatUpdate,
 } from '../actions';
 
 function* startApp() {
@@ -58,6 +59,10 @@ function subscribe(socket) {
     });
     socket.on('redirect', (data) => {
       emit(redirect(data));
+    });
+
+    socket.on('newMessage', (data) => {
+      emit(chatUpdate(data));
     });
     return () => {};
   });
