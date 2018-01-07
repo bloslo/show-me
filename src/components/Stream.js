@@ -49,36 +49,43 @@ class Stream extends Component {
                   </span>
                 </div>
                 <div className="div-viewers">
-                  <span className="streaming">
-                  1 Viewer
-                    <div>
-                      <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                        <input type="hidden" name="cmd" value="_s-xclick" />
-                        <input type="hidden" name="hosted_button_id" value="Y9PZVSAX79PNN" />
-                        <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
-                        <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-                      </form>
-                    </div>
-                  </span>
+                  <div className="div-donate">
+                    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                      <input type="hidden" name="cmd" value="_s-xclick" />
+                      <input type="hidden" name="hosted_button_id" value="Y9PZVSAX79PNN" />
+                      <button className="btn" type="button">Donate</button>
+                      <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+                    </form>
+                  </div>
+
                 </div>
               </div>
             </div>
-            <div className="div-content-chat">
-              <div>
-                {this.props.chatMsg.map((msg, index) => (
-                <div className="message" key={index}>{msg.user}: {msg.msg}</div> // eslint-disable-line
-              ))}
+            <div className="div-content-sidebar">
+              <div className="div-sidebar-chat">
+                <div className="div-chat-message">
+                  {this.props.chatMsg.map((msg, index) => (
+                    <div className="message" key={index}><strong>{msg.user}</strong>: {msg.msg}</div> //eslint-disable-line
+                ))}
+                </div>
+                <div className="div-chat-text">
+                  <div className="div-chat-textbox">
+                    <input
+                      className="form-control"
+                      autoComplete="off"
+                      onChange={event => this.setState({ message: event.target.value })}
+                    />
+                  </div>
+                  <div className="div-chat-button">
+                    <button className="btn" onClick={() => this.props.sendChatMsg(this.state.message)}>
+                     Send
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div>
-                <form>
-                  <input
-                    autoComplete="off"
-                    onChange={event => this.setState({ message: event.target.value })}
-                  />
-                  <button onClick={() => this.props.sendChatMsg(this.state.message)}>Send</button>
-                </form>
+              <div className="div-sidebar-map">
+                <Map lat={this.props.lat} long={this.props.long} />
               </div>
-              <Map lat={this.props.lat} long={this.props.long} />
             </div>
           </div>
         </div>
@@ -88,14 +95,15 @@ class Stream extends Component {
       <div>
         <h3>Get subscribed!</h3>
         <p>Subscribe now and enjoy the great content from {this.state.streamer}.</p>
-        <button
-          className="btn btn-default"
-          type="button"
-          onClick={
-            () => this.props.pay(this.state.streamer)}
-        >
-          Pay
-        </button>
+        <div className="div-pay">
+          <button
+            className="btn"
+            type="button"
+            onClick={() => this.props.pay(this.state.streamer)}
+          >
+            Pay
+          </button>
+        </div>
       </div>);
 
     return (
