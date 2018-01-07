@@ -27,7 +27,7 @@ function subscribe(socket) {
   return eventChannel((emit) => {
     socket.on('login', (data) => {
       if (data.succeed) {
-        emit(logIn());
+        emit(logIn(data.userData));
       } else {
         emit(logInFailed(data.message));
       }
