@@ -65,7 +65,7 @@ class Stream extends Component {
               <div className="div-sidebar-chat">
                 <div className="div-chat-message">
                   {this.props.chatMsg.map((msg, index) => (
-                  <div className="message" key={index}><strong>{msg.user}</strong>: {msg.msg}</div> // eslint-disable-line
+                    <div className="message" key={index}><strong>{msg.user}</strong>: {msg.msg}</div> //eslint-disable-line
                 ))}
                 </div>
                 <div className="div-chat-text">
@@ -77,20 +77,15 @@ class Stream extends Component {
                     />
                   </div>
                   <div className="div-chat-button">
-                    <button className="btn" onClick={() => this.props.sendChatMsg(this.state.message)}>Send</button>
+                    <button className="btn" onClick={() => this.props.sendChatMsg(this.state.message)}>
+                     Send
+                    </button>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="div-content-chat">
-            <div>
-              {this.props.chatMsg.map((msg, index) => (
-                <div className="message" key={index}>{msg.user}: {msg.msg}</div> // eslint-disable-line
-              ))}
-            </div>
-            <div className="div-sidebar-map">
-              <Map lat={this.props.lat} long={this.props.long} />
+              <div className="div-sidebar-map">
+                <Map lat={this.props.lat} long={this.props.long} />
+              </div>
             </div>
           </div>
         </div>
