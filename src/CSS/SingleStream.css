@@ -90,7 +90,6 @@
   text-align: right;
 }
 
-<<<<<<< HEAD
 .div-donate {
   float: right;
   text-align: right;
@@ -150,7 +149,7 @@
 
 .message{
   margin: 2%;
-=======
+}
 .nav {
   background: black;
   height: 46px;
@@ -167,5 +166,4 @@ h3 {
 p {
   margin-left: 5px;
   width: 50vw;
->>>>>>> master
 }
