@@ -25,7 +25,7 @@ class Stream extends Component {
   }
 
   render() {
-    const isSubscribed = this.props.subscribed.some(x => x.uuid === this.props.match.params.uuid)
+    const isSubscribed = this.props.subscribed.some(x => x.username === this.state.streamer)
       || this.state.streamer === this.props.username;
 
     const renderStream = (
