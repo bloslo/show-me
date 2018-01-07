@@ -27,14 +27,12 @@
   width: 70%;
 }
 
-.div-content-chat {
+.div-content-sidebar {
   background: transparent;
   text-align: center;
   float: right;
   height: 100%;
   width: 30%;
-  border-style: solid;
-  border-width: 1px;
 }
 
 .div-content-player {
@@ -90,4 +88,65 @@
 .div-viewers {
   float: right;
   text-align: right;
+}
+
+.div-donate {
+  float: right;
+  text-align: right;
+  margin-right: 5px;
+}
+
+.div-pay {
+  float: right;
+  text-align: right;
+  margin-right: 5px;
+}
+
+.div-sidebar-chat {
+  background: transparent;
+  height: 50%;
+  width: 100%;
+}
+
+.div-sidebar-map {
+  background: transparent;
+  height: 50%;
+  width: 100%;
+}
+
+.div-chat-message{
+  background: white;
+  height: 82%;
+  width: 100%;
+  text-align: left;
+  overflow-y: scroll;
+  margin-bottom: 3%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #f1c40f;
+}
+
+.div-chat-text{
+  background: transparent;
+  height: 15%;
+  width: 100%;
+}
+
+.div-chat-textbox{
+  background: transparent;
+  height: 100%;
+  width: 80%;
+  float: left;
+}
+
+.div-chat-button{
+  background: transparent;
+  height: 100%;
+  width: 20%;
+  float: right;
+  margin-bottom: 2%;
+}
+
+.message{
+  margin: 2%;
 }

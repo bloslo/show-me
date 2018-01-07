@@ -18,8 +18,8 @@ class Map extends Component {
           latitude={this.props.lat}
           longitude={this.props.long}
           zoom={17}
-          height={270}
-          width={270}
+          height={250}
+          width={300}
         />
       </div>
     );
