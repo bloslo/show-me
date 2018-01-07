@@ -111,7 +111,7 @@ class Stream extends Component {
         <p>Subscribe now and enjoy the great content from {this.state.streamer}.</p>
         <div className="div-pay">
           <button
-            className="btn"
+            className="btn btn-default"
             type="button"
             onClick={() => this.props.pay(this.state.streamer)}
           >
