@@ -74,6 +74,10 @@ export const chatUpdate = data => ({
   data,
 });
 
+export const initStream = () => ({
+  type: 'INITSTREAM',
+});
+
 /*
 Example of action with parameter
 export const toggleTodo = (id) => ({

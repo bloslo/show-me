@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { sendMessage } from '../actions';
+import { sendMessage, initStream } from '../actions';
 import Map from './Map';
 import Player from './Player';
 import '../CSS/SingleStream.css';
@@ -146,6 +146,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   joinRoom: (uuid) => {
     dispatch(sendMessage('joinRoom', uuid));
+    dispatch(initStream());
   },
   sendChatMsg: (msg) => {
     dispatch(sendMessage('chatMessage', msg));
