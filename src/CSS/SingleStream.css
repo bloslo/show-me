@@ -91,3 +91,21 @@
   float: right;
   text-align: right;
 }
+
+.nav {
+  background: black;
+  height: 46px;
+  margin: 0px;
+}
+.btn {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+h3 {
+  margin-left: 5px;
+}
+
+p {
+  margin-left: 5px;
+  width: 50vw;
+}

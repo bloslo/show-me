@@ -1,10 +1,13 @@
-const user = (state = { loggedIn: false, registerError: '', loginError: '' }, action) => {
+const user = (state = {
+  loggedIn: false, registerError: '', loginError: '', username: '',
+}, action) => {
   switch (action.type) {
     case 'LOG_IN':
       return {
         ...state,
         loginError: '',
         loggedIn: true,
+        username: action.user,
       };
     case 'LOG_IN_FAILED':
       return {

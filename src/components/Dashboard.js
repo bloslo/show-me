@@ -26,14 +26,16 @@ class Dashboard extends Component {
             <h2>Online</h2>
             <div>
               {
-                this.props.streams.map(x => (<DashboardCell stream={x} />))
+                this.props.streams.map(x => (<DashboardCell key={x.uuid} stream={x} />))
               }
             </div>
             <br style={{ clear: 'both' }} />
             <h2>Subscribed</h2>
             <div>
               {
-                this.props.subscribed.map(x => (<DashboardCell stream={x} />))
+                this.props.subscribed
+                  .map(x => this.props.streams.find(y => y.username === x.username) || { username: x.username, uuid: '' })
+                  .map(x => (<DashboardCell key={x.uuid} stream={x} />))
               }
             </div>
           </div>
