@@ -1,9 +1,11 @@
 const chat = (state = { chatMsg: [] }, action) => {
   switch (action.type) {
+    case 'INITSTREAM':
+      return { chatMsg: [] };
     case 'CHAT_UPDATE':
       return {
         ...state,
-        chatMsg: [...state.chatMsg, action.data],
+        chatMsg: [action.data, ...state.chatMsg],
       };
     default:
       return state;

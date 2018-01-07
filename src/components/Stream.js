@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { sendMessage } from '../actions';
+import { sendMessage, initStream } from '../actions';
 import Map from './Map';
 import Player from './Player';
 import '../CSS/SingleStream.css';
@@ -27,6 +27,11 @@ class Stream extends Component {
   render() {
     const isSubscribed = this.props.subscribed.some(x => x.username === this.state.streamer)
       || this.state.streamer === this.props.username;
+
+    const sendChatMessage = () => {
+      this.props.sendChatMsg(this.state.message);
+      this.setState({ message: '' });
+    };
 
     const renderStream = (
       <div>
@@ -73,11 +78,20 @@ class Stream extends Component {
                     <input
                       className="form-control"
                       autoComplete="off"
+                      value={this.state.message}
                       onChange={event => this.setState({ message: event.target.value })}
+                      onKeyPress={(event) => {
+                        if (event.key === 'Enter') {
+                          sendChatMessage();
+                        }
+                      }}
                     />
                   </div>
                   <div className="div-chat-button">
-                    <button className="btn" onClick={() => this.props.sendChatMsg(this.state.message)}>
+                    <button
+                      className="btn"
+                      onClick={sendChatMessage}
+                    >
                      Send
                     </button>
                   </div>
@@ -132,6 +146,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   joinRoom: (uuid) => {
     dispatch(sendMessage('joinRoom', uuid));
+    dispatch(initStream());
   },
   sendChatMsg: (msg) => {
     dispatch(sendMessage('chatMessage', msg));
