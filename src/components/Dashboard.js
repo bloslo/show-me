@@ -26,7 +26,7 @@ class Dashboard extends Component {
             <h2>Online</h2>
             <div>
               {
-                this.props.streams.map(x => (<DashboardCell stream={x} />))
+                this.props.streams.map(x => (<DashboardCell key={x.uuid} stream={x} />))
               }
             </div>
             <br style={{ clear: 'both' }} />
