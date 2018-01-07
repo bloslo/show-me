@@ -28,6 +28,11 @@ class Stream extends Component {
     const isSubscribed = this.props.subscribed.some(x => x.username === this.state.streamer)
       || this.state.streamer === this.props.username;
 
+    const sendChatMessage = () => {
+      this.props.sendChatMsg(this.state.message);
+      this.setState({ message: '' });
+    };
+
     const renderStream = (
       <div>
         <div className="backgrounds">
@@ -73,11 +78,20 @@ class Stream extends Component {
                     <input
                       className="form-control"
                       autoComplete="off"
+                      value={this.state.message}
                       onChange={event => this.setState({ message: event.target.value })}
+                      onKeyPress={(event) => {
+                        if (event.key === 'Enter') {
+                          sendChatMessage();
+                        }
+                      }}
                     />
                   </div>
                   <div className="div-chat-button">
-                    <button className="btn" onClick={() => this.props.sendChatMsg(this.state.message)}>
+                    <button
+                      className="btn"
+                      onClick={sendChatMessage}
+                    >
                      Send
                     </button>
                   </div>
