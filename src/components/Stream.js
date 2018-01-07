@@ -25,7 +25,8 @@ class Stream extends Component {
   }
 
   render() {
-    const isSubscribed = this.props.subscribed.some(x => x.uuid === this.props.match.params.uuid);
+    const isSubscribed = this.props.subscribed.some(x => x.uuid === this.props.match.params.uuid)
+      || this.state.streamer === this.props.username;
 
     const renderStream = (
       <div>
@@ -117,6 +118,7 @@ const mapStateToProps = state => ({
   loggedIn: state.user.loggedIn,
   streams: state.streamlist.streams,
   subscribed: state.streamlist.subscribed,
+  username: state.user.username,
 });
 
 const mapDispatchToProps = dispatch => ({

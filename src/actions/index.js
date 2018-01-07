@@ -1,5 +1,6 @@
-export const logIn = () => ({
+export const logIn = user => ({
   type: 'LOG_IN',
+  user,
 });
 
 export const logInFailed = message => ({
